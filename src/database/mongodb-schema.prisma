@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs https//pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/generated/prisma/mongodb-client"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = ""
+}
+
+model News {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  title           String
+  description     String
+  publicationDate DateTime @map("publication_date")
+  sourceUrl       String   @map("source_url")
+  topics          String[]
+  people          String[]
+  organizations   String[]
+  locations       String[]
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  @@map("news")
+}

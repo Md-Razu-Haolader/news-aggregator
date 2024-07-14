@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+    output   = "../../node_modules/generated/prisma/mysql-client"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = ""
+}
+
+model User {
+    id        Int       @id @default(dbgenerated())
+    firstName String    @map("first_name") @db.Char(100)
+    lastName  String    @map("last_name") @db.Char(100)
+    email     String    @unique @map("email") @db.Char(150)
+    status    Int       @default(1) @map("status") // 1 for active, 2 for inactive
+    createdAt DateTime  @default(now()) @map("created_at")
+    updatedAt DateTime? @updatedAt @map("updated_at")
+
+    @@map("users")
+}

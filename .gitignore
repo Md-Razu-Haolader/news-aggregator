@@ -1,0 +1,9 @@
+.env
+/node_modules
+/mongodb_data
+npm-debug.log
+yarn-error.log
+/dist
+/logs
+.DS_Store
+.vscode

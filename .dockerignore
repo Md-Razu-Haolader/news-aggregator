@@ -1,0 +1,9 @@
+node_modules
+mongodb_data
+Dockerfile
+.dockerignore
+.git
+.gitignore
+docker-compose-*
+npm-debug.log
+yarn-error.log
